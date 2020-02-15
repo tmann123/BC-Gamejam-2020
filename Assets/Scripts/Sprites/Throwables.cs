@@ -5,29 +5,37 @@ using UnityEngine;
 public class Throwables : MonoBehaviour
 {
     private Rigidbody rb;
-    private float speed;
+    public float throwspeed;
 
     private bool isPickedUp;
 
-    public GameObject ray;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update() {
-        throw new System.NotSupportedException();
+
+        if(isPickedUp){
+            Debug.Log("Gravity turned off");
+            rb.useGravity = false;
+            //The giant will need change the transform of the Throwable
+        }
     }
 
-    void Throw(Vector3 direction) {
+    public void Throw(Vector3 direction) {
+        
+        rb.AddForce(direction.normalized * throwspeed);
 
+        rb.useGravity = true;
         isPickedUp = false;
     }
 
     public void Pickup(){
+        Debug.Log("Picked up");
         isPickedUp = true;
     }
 
