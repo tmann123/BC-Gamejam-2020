@@ -24,7 +24,7 @@ public class InteractWithThrowable : MonoBehaviour
         Throwables temp = collision.collider.GetComponent<Throwables>();
 
         if (temp != null){
-            temp.enablesInteract();
+            temp.EnableInteract();
         }
     }
 
