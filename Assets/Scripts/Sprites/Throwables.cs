@@ -17,28 +17,26 @@ public class Throwables : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
+    void Update() {
+        throw new System.NotSupportedException();
     }
 
-    void Throw(Vector3 direction)
-    {
-
+    void Throw(Vector3 direction) {
+        throw new System.NotSupportedException();
     }
 
-    void Accelerate()
-    {
-        
+    void Accelerate() {
+        throw new System.NotSupportedException();
     }
 
     void Pickup(){
         
     }
 
-    public void enableInteract(){
+    public void EnableInteract(){
         Debug.Log("lol");
+
+
+
     }
-
-
 }
