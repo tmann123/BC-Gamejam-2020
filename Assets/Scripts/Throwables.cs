@@ -33,11 +33,11 @@ public class Throwables : MonoBehaviour
     }
 
     void Pickup(){
-
+        
     }
 
     public void enableInteract(){
-
+        Debug.Log("lol");
     }
 
 
