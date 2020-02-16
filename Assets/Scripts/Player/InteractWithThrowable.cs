@@ -48,8 +48,18 @@ public class InteractWithThrowable : MonoBehaviour
     //Checks if the ray is hitting an object, if the ray hits a throwable PickupObject will happen
     private bool DetectThrowable(){
         // Draws a ray and stores the if the ray has hit anything, if it does hit something then objectHit is updated
-        bool didHit = Physics.Raycast(ray.transform.position, ray.transform.TransformDirection(new Vector3(0,-1,1)), out objectHit, interactDistance);
-        return (objectHit.transform.GetComponent<Throwables>() != null);
+        bool didHit = Physics.Raycast(ray.transform.position, ray.transform.TransformDirection(new Vector3(0,-1,0.3f)), out objectHit, interactDistance);
+        if (didHit && (objectHit.transform.GetComponent<Throwables>() != null))
+        {
+            return true;
+        }
+        didHit = Physics.Raycast(ray.transform.position, ray.transform.TransformDirection(new Vector3(0, -1, 0.6f)), out objectHit, interactDistance);
+        if (didHit && (objectHit.transform.GetComponent<Throwables>() != null))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     //TODO Sets holdingThrowable to true, just putting it here if we need it
