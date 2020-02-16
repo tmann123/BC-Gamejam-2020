@@ -28,7 +28,7 @@ public class @ControlMap : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Look"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""5dc79ef8-4ed1-4380-845b-3c2d89e6965c"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -41,6 +41,22 @@ public class @ControlMap : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""bdd3ed11-29ab-401b-bd04-b5c2772ee82e"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""ccaa520a-4990-425e-a198-7ff95afcef4f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -100,37 +116,37 @@ public class @ControlMap : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""ace7f84b-306f-444a-ae59-1e005e511495"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""name"": """",
+                    ""id"": ""8a3a244c-f0e0-448f-934a-36df297da6ab"",
+                    ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Look"",
-                    ""isComposite"": true,
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""766497cd-0592-49c9-84b6-9e8bb08cc809"",
-                    ""path"": ""<Mouse>/scroll/y"",
+                    ""name"": """",
+                    ""id"": ""51cef450-e4c8-4a34-9d31-360322ece557"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""5531d694-7009-40a9-8325-aa380be64d5c"",
-                    ""path"": ""<Mouse>/scroll/x"",
+                    ""name"": """",
+                    ""id"": ""615b7eaa-deba-4225-a265-e82c282ffd0a"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Look"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -155,6 +171,11 @@ public class @ControlMap : IInputActionCollection, IDisposable
                     ""devicePath"": ""<Keyboard>"",
                     ""isOptional"": false,
                     ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
                 }
             ]
         }
@@ -165,6 +186,8 @@ public class @ControlMap : IInputActionCollection, IDisposable
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
         m_Gameplay_PickUp = m_Gameplay.FindAction("PickUp", throwIfNotFound: true);
+        m_Gameplay_Zoom = m_Gameplay.FindAction("Zoom", throwIfNotFound: true);
+        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -217,6 +240,8 @@ public class @ControlMap : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Look;
     private readonly InputAction m_Gameplay_PickUp;
+    private readonly InputAction m_Gameplay_Zoom;
+    private readonly InputAction m_Gameplay_Jump;
     public struct GameplayActions
     {
         private @ControlMap m_Wrapper;
@@ -224,6 +249,8 @@ public class @ControlMap : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Look => m_Wrapper.m_Gameplay_Look;
         public InputAction @PickUp => m_Wrapper.m_Gameplay_PickUp;
+        public InputAction @Zoom => m_Wrapper.m_Gameplay_Zoom;
+        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -242,6 +269,12 @@ public class @ControlMap : IInputActionCollection, IDisposable
                 @PickUp.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickUp;
                 @PickUp.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickUp;
                 @PickUp.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickUp;
+                @Zoom.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoom;
+                @Zoom.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoom;
+                @Zoom.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoom;
+                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -255,6 +288,12 @@ public class @ControlMap : IInputActionCollection, IDisposable
                 @PickUp.started += instance.OnPickUp;
                 @PickUp.performed += instance.OnPickUp;
                 @PickUp.canceled += instance.OnPickUp;
+                @Zoom.started += instance.OnZoom;
+                @Zoom.performed += instance.OnZoom;
+                @Zoom.canceled += instance.OnZoom;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -273,5 +312,7 @@ public class @ControlMap : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
