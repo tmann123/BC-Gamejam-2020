@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/TerrrainMaking OwO/NavMesh-NavMeshSurface 3.asset.meta
 guid: 2c8aef2987bda4b408346d6c614749c1
+=======
+guid: aeb2c0a519df6d24caaf1a4de26ba226
+>>>>>>> dev:Assets/Scenes/TerrrainMaking OwO/NavMesh-NavMeshSurface 3.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
