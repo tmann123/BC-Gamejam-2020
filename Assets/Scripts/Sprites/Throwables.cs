@@ -6,10 +6,12 @@ public class Throwables : MonoBehaviour
 {
     // public
     public float throwspeed;
+    public float speed;
 
     // private
     private Rigidbody rb;
     private bool lockedMovement;
+    private bool flying;
 
 
     // Start is called before the first frame update
@@ -17,30 +19,39 @@ public class Throwables : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         lockedMovement = false;
+        flying = false;
     }
 
     // Update is called once per frame
     void Update() {
-        if(lockedMovement)
+        speed = rb.velocity.magnitude;
+        if (lockedMovement && !flying)
         {
-            Debug.Log("Gravity turned off");
             rb.useGravity = false;
-            //The giant will need change the transform of the Throwable
+        }
+        if (speed < 0.3 && flying)
+        {
+            Land();
         }
     }
 
     public void Throw(Vector3 direction) {
         rb.AddForce(direction.normalized * throwspeed);
         rb.useGravity = true;
-        // TODO need to reimplement this so the npc doesn't move in midair
-        lockedMovement = false;
+        flying = true;
     }
 
     public void Pickup(){
-        Debug.Log("Picked up");
-        gameObject.SendMessage("LockedMovement");
+        gameObject.SendMessage("LockMovement");
         lockedMovement = true;
     }
 
+    private void Land()
+    {
+        gameObject.SendMessage("UnlockMovement");
+        // TODO need to reimplement this so the npc doesn't move in midair
+        lockedMovement = false;
+        flying = false;
+    }
     
 }

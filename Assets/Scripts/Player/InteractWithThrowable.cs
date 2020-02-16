@@ -10,6 +10,8 @@ public class InteractWithThrowable : MonoBehaviour
     public GameObject ray;
     // Set in Prefab
     public GameObject connectPoint;
+    
+    public float rotationSpeed;
 
     // private
     private RaycastHit objectHit;
@@ -17,12 +19,14 @@ public class InteractWithThrowable : MonoBehaviour
     private Throwables heldItem;
     private PlayerInputs input;
 
+
  
     // Start is called before the first frame update
     void Start()
     {
         input = GetComponent<PlayerInputs>();
         holdingThrowable = false;
+
     }
 
     // Update is called once per frame
@@ -33,9 +37,7 @@ public class InteractWithThrowable : MonoBehaviour
             PickupObject();
         }
         if(holdingThrowable){
-            Debug.Log("throwable transform being changed");
-            heldItem.transform.position = connectPoint.transform.position;
-            heldItem.transform.rotation = connectPoint.transform.rotation;
+            ChangeThrowAngle();
             if (!input.PickUp)
             {
                 ThrowObject();
@@ -46,8 +48,18 @@ public class InteractWithThrowable : MonoBehaviour
     //Checks if the ray is hitting an object, if the ray hits a throwable PickupObject will happen
     private bool DetectThrowable(){
         // Draws a ray and stores the if the ray has hit anything, if it does hit something then objectHit is updated
-        bool didHit = Physics.Raycast(ray.transform.position, ray.transform.TransformDirection(new Vector3(0,-1,1)), out objectHit, interactDistance);
-        return (objectHit.transform.GetComponent<Throwables>() != null);
+        bool didHit = Physics.Raycast(ray.transform.position, ray.transform.TransformDirection(new Vector3(0,-1,0.3f)), out objectHit, interactDistance);
+        if (didHit && (objectHit.transform.GetComponent<Throwables>() != null))
+        {
+            return true;
+        }
+        didHit = Physics.Raycast(ray.transform.position, ray.transform.TransformDirection(new Vector3(0, -1, 0.6f)), out objectHit, interactDistance);
+        if (didHit && (objectHit.transform.GetComponent<Throwables>() != null))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     //TODO Sets holdingThrowable to true, just putting it here if we need it
@@ -58,7 +70,6 @@ public class InteractWithThrowable : MonoBehaviour
         //I don't know if tbl.Pickup() is needed either but its there for now
         heldItem.Pickup();
         holdingThrowable = true;
-        Debug.Log("f key pressed");
     }
 
     private void ThrowObject()
@@ -66,5 +77,21 @@ public class InteractWithThrowable : MonoBehaviour
         //I don't know if tbl.Pickup() is needed either but its there for now
         holdingThrowable = false;
         heldItem.Throw(objectHit.transform.forward);
+        connectPoint.transform.rotation = gameObject.transform.rotation;
+    }
+
+    private void ChangeThrowAngle(){
+        //rotatedAmount += new Vector3(-3,0,0)*Time.deltaTime*rotationSpeed;
+        heldItem.transform.position = connectPoint.transform.position;
+        heldItem.transform.rotation = connectPoint.transform.rotation;
+
+        if(connectPoint.transform.rotation.eulerAngles.x > 290.0f || connectPoint.transform.rotation.eulerAngles.x == 0 )
+        {
+            connectPoint.transform.Rotate(new Vector3(-3,0,0) * Time.deltaTime * rotationSpeed);
+        } else {
+            connectPoint.transform.Rotate(Vector3.zero);
+        }
+
+         
     }
 }

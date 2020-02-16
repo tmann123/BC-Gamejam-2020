@@ -53,11 +53,15 @@ public class NpcMovement : MonoBehaviour
 
     public void LockMovement()
     {
+        Debug.Log("locked movement");
+        agent.enabled = false;
         lockedMovement = true;
     }
 
     public void UnlockMovement()
     {
+        Debug.Log("unlocked movement");
+        agent.enabled = true;
         lockedMovement = false;
     }
 
