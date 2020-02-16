@@ -11,10 +11,16 @@ public class PlayerInputs : MonoBehaviour
     private Vector2 movement = Vector2.zero;
     private Vector2 mouseDrift = Vector2.zero;
     private float mouseScroll = 0f;
+    private bool jump = false;
 
     public Vector2 Movement { get { return movement; } }
     public Vector2 MouseDrift { get { return mouseDrift; } }
     public float MouseScroll { get { return mouseScroll; } }
+    public bool Jump { get { return jump; } }
+
+    private void LateUpdate() {
+        jump = false;
+    }
 
     // Called when movement keys are pressed
     void OnMove(InputValue value) {
@@ -31,5 +37,9 @@ public class PlayerInputs : MonoBehaviour
 
         // Normalize a tick to the scroll tick value
         mouseScroll = Mathf.Clamp(rawScroll, -scrollTick, scrollTick);
+    }
+
+    void OnJump() {
+        jump = true;
     }
 }
