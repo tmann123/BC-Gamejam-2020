@@ -53,11 +53,10 @@ public class NpcAttributes : MonoBehaviour
                 playerCompRef.ChangeCompassion(hurtCompassion);
             }
         }
-        if (collision.collider.tag == "Pool" && thr.Flying && !won)
-        {
-            // TODO
-            won = true;
-            playerCompRef.ChangeCompassion(intoPoolCompassion);
-        }
+    }
+
+    public void OnWon()
+    {
+        won = true;
     }
 }

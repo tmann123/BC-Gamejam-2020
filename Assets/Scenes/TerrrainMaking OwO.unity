@@ -673,16 +673,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4227502104420574459, guid: b3f9f52b72da22740814b7acee5ecb31,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 8533704671144788403, guid: b3f9f52b72da22740814b7acee5ecb31,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 4.04
-      objectReference: {fileID: 0}
     - target: {fileID: 8889325725858239094, guid: b3f9f52b72da22740814b7acee5ecb31,
         type: 3}
       propertyPath: m_Name
@@ -748,21 +738,6 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 911330025}
-    - target: {fileID: 8889325725858239099, guid: b3f9f52b72da22740814b7acee5ecb31,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8889325725858239100, guid: b3f9f52b72da22740814b7acee5ecb31,
-        type: 3}
-      propertyPath: jumpHeight
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8889325725858239100, guid: b3f9f52b72da22740814b7acee5ecb31,
-        type: 3}
-      propertyPath: gravity
-      value: -19.62
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f9f52b72da22740814b7acee5ecb31, type: 3}
 --- !u!4 &1114746953 stripped

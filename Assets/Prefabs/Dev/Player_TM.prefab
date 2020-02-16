@@ -101,7 +101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7374322463266024728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 1.3699999, z: 0.7}
+  m_LocalPosition: {x: 0.03, y: 1.3699999, z: 2.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8889325725858239096}
@@ -255,9 +255,10 @@ GameObject:
   - component: {fileID: 8889325725858239099}
   - component: {fileID: 8533704671144788403}
   - component: {fileID: 2841175197730425654}
+  - component: {fileID: 1306850737}
   m_Layer: 0
   m_Name: Player_TM
-  m_TagString: Untagged
+  m_TagString: Giant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,6 +393,7 @@ MonoBehaviour:
   ray: {fileID: 7374322463266024728}
   connectPoint: {fileID: 6191209357875327187}
   rotationSpeed: 0
+  rotationSpeed: 4.04
   holdingThrowable: 0
 --- !u!114 &2841175197730425654
 MonoBehaviour:
@@ -406,6 +408,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 33435552807353552}
+--- !u!114 &1306850737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889325725858239094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e389f06e870b4bb4e87a6ca65e2c715a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &233991052564215436
 PrefabInstance:
   m_ObjectHideFlags: 0
