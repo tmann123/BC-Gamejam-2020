@@ -33,6 +33,14 @@ public class @ControlMap : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PickUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""7e82ca46-ca69-4422-8638-ecaea5c66de1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -123,6 +131,17 @@ public class @ControlMap : IInputActionCollection, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f40eca28-d0e0-42bd-80ba-4ab14524ced1"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -145,6 +164,7 @@ public class @ControlMap : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
+        m_Gameplay_PickUp = m_Gameplay.FindAction("PickUp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -196,12 +216,14 @@ public class @ControlMap : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Look;
+    private readonly InputAction m_Gameplay_PickUp;
     public struct GameplayActions
     {
         private @ControlMap m_Wrapper;
         public GameplayActions(@ControlMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Look => m_Wrapper.m_Gameplay_Look;
+        public InputAction @PickUp => m_Wrapper.m_Gameplay_PickUp;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -217,6 +239,9 @@ public class @ControlMap : IInputActionCollection, IDisposable
                 @Look.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
+                @PickUp.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickUp;
+                @PickUp.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickUp;
+                @PickUp.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickUp;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -227,6 +252,9 @@ public class @ControlMap : IInputActionCollection, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @PickUp.started += instance.OnPickUp;
+                @PickUp.performed += instance.OnPickUp;
+                @PickUp.canceled += instance.OnPickUp;
             }
         }
     }
@@ -244,5 +272,6 @@ public class @ControlMap : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnPickUp(InputAction.CallbackContext context);
     }
 }

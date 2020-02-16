@@ -20,6 +20,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "7e82ca46-ca69-4422-8638-ecaea5c66de1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -110,6 +118,17 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f40eca28-d0e0-42bd-80ba-4ab14524ced1",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -293,6 +293,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3625561609372145002, guid: f86856ba7c7e0974783d0cd0d3e06680,
+        type: 3}
+      propertyPath: mouseXInputName
+      value: Mouse X
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625561609372145002, guid: f86856ba7c7e0974783d0cd0d3e06680,
+        type: 3}
+      propertyPath: mouseYInputName
+      value: Mouse Y
+      objectReference: {fileID: 0}
     - target: {fileID: 3625561609835314511, guid: f86856ba7c7e0974783d0cd0d3e06680,
         type: 3}
       propertyPath: m_LocalPosition.y

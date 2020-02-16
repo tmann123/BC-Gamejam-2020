@@ -9,12 +9,12 @@ public class NpcMovement : MonoBehaviour
     public float npcRelRadius;
     public float npcBorderRadius;
     public float npcTimer;
-    public bool free;
 
     // private
     private NavMeshAgent agent;
     private float timer;
     private Vector3 startPos;
+    private bool lockedMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class NpcMovement : MonoBehaviour
     void Update()
     {
         // Check if NPC is free to move
-        if (!free)
+        if (lockedMovement)
         {
             // Buffer timer for the NPC to move as soon as free'd
             timer = npcTimer;
@@ -49,6 +49,16 @@ public class NpcMovement : MonoBehaviour
             agent.SetDestination(newPos);
             timer = 0;
         }
+    }
+
+    public void LockMovement()
+    {
+        lockedMovement = true;
+    }
+
+    public void UnlockMovement()
+    {
+        lockedMovement = false;
     }
 
     /* 

@@ -7,9 +7,11 @@ public class PlayerInputs : MonoBehaviour
 {
     private Vector2 movement = Vector2.zero;
     private Vector2 mouseDrift = Vector2.zero;
+    private bool pickUp = false;
 
     public Vector2 Movement { get { return movement; } }
     public Vector2 MouseDrift { get { return mouseDrift; } }
+    public bool PickUp { get { return pickUp; } }
 
     // Called when movement keys are pressed
     void OnMove(InputValue value) {
@@ -20,5 +22,11 @@ public class PlayerInputs : MonoBehaviour
     void OnLook(InputValue value) {
         mouseDrift = value.Get<Vector2>();
         Debug.Log("Movement is: " + mouseDrift);
+    }
+
+    // Called when item is picked up/dropped
+    void OnPickUp()
+    {
+        pickUp = !pickUp;
     }
 }
