@@ -37,7 +37,6 @@ public class InteractWithThrowable : MonoBehaviour
             PickupObject();
         }
         if(holdingThrowable){
-            Debug.Log("throwable transform being changed");
             ChangeThrowAngle();
             if (!input.PickUp)
             {
@@ -49,8 +48,18 @@ public class InteractWithThrowable : MonoBehaviour
     //Checks if the ray is hitting an object, if the ray hits a throwable PickupObject will happen
     private bool DetectThrowable(){
         // Draws a ray and stores the if the ray has hit anything, if it does hit something then objectHit is updated
-        bool didHit = Physics.Raycast(ray.transform.position, ray.transform.TransformDirection(new Vector3(0,-1,1)), out objectHit, interactDistance);
-        return (objectHit.transform.GetComponent<Throwables>() != null);
+        bool didHit = Physics.Raycast(ray.transform.position, ray.transform.TransformDirection(new Vector3(0,-1,0.3f)), out objectHit, interactDistance);
+        if (didHit && (objectHit.transform.GetComponent<Throwables>() != null))
+        {
+            return true;
+        }
+        didHit = Physics.Raycast(ray.transform.position, ray.transform.TransformDirection(new Vector3(0, -1, 0.6f)), out objectHit, interactDistance);
+        if (didHit && (objectHit.transform.GetComponent<Throwables>() != null))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     //TODO Sets holdingThrowable to true, just putting it here if we need it
@@ -61,7 +70,6 @@ public class InteractWithThrowable : MonoBehaviour
         //I don't know if tbl.Pickup() is needed either but its there for now
         heldItem.Pickup();
         holdingThrowable = true;
-        Debug.Log("f key pressed");
     }
 
     private void ThrowObject()
@@ -69,7 +77,7 @@ public class InteractWithThrowable : MonoBehaviour
         //I don't know if tbl.Pickup() is needed either but its there for now
         holdingThrowable = false;
         heldItem.Throw(objectHit.transform.forward);
-        connectPoint.transform.rotation = Quaternion.Euler(0,0,0);
+        connectPoint.transform.rotation = gameObject.transform.rotation;
     }
 
     private void ChangeThrowAngle(){
@@ -77,11 +85,10 @@ public class InteractWithThrowable : MonoBehaviour
         heldItem.transform.position = connectPoint.transform.position;
         heldItem.transform.rotation = connectPoint.transform.rotation;
 
-        if(connectPoint.transform.rotation.eulerAngles.x > 290.0f || connectPoint.transform.rotation.eulerAngles.x == 0 ){
-            //Debug.Log(connectPoint.transform.rotation.eulerAngles.x);
+        if(connectPoint.transform.rotation.eulerAngles.x > 290.0f || connectPoint.transform.rotation.eulerAngles.x == 0 )
+        {
             connectPoint.transform.Rotate(new Vector3(-3,0,0) * Time.deltaTime * rotationSpeed);
         } else {
-            Debug.Log("Should not be rotating");
             connectPoint.transform.Rotate(Vector3.zero);
         }
 
