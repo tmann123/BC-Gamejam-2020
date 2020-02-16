@@ -36,10 +36,12 @@ public class PlayerGravity : MonoBehaviour
 
         if (isGrounded && input.Jump) {
             velocity.y = Mathf.Sqrt(jumpHeight * gravity * -2f);
+            controller.slopeLimit = 100.0f;
         }
         else if (isGrounded && velocity.y < 0) {
             // -2f is low force that covers case of ground being registered before being on it completely
             velocity.y = -2f;
+            controller.slopeLimit = 45.0f;
         }
         else {
             velocity.y += gravity * Time.deltaTime;
