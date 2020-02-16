@@ -13,6 +13,8 @@ public class InteractWithThrowable : MonoBehaviour
     
     public float rotationSpeed;
 
+
+
     // private
     private RaycastHit objectHit;
     private bool holdingThrowable;
@@ -78,6 +80,7 @@ public class InteractWithThrowable : MonoBehaviour
         holdingThrowable = false;
         heldItem.Throw(objectHit.transform.forward);
         connectPoint.transform.rotation = gameObject.transform.rotation;
+        
     }
 
     private void ChangeThrowAngle(){
