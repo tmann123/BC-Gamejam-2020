@@ -11,7 +11,7 @@ public class Throwables : MonoBehaviour
     // private
     private Rigidbody rb;
     private bool lockedMovement;
-
+    private bool flying;
 
 
     // Start is called before the first frame update
@@ -19,32 +19,39 @@ public class Throwables : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         lockedMovement = false;
+        flying = false;
     }
 
     // Update is called once per frame
     void Update() {
         speed = rb.velocity.magnitude;
-        Debug.Log(speed);
-        if(lockedMovement)
+        if (lockedMovement && !flying)
         {
-            Debug.Log("Gravity turned off");
             rb.useGravity = false;
-            
+        }
+        if (speed < 0.3 && flying)
+        {
+            Land();
         }
     }
 
     public void Throw(Vector3 direction) {
         rb.AddForce(direction.normalized * throwspeed);
         rb.useGravity = true;
-        // TODO need to reimplement this so the npc doesn't move in midair
-        lockedMovement = false;
+        flying = true;
     }
 
     public void Pickup(){
-        Debug.Log("Picked up");
-        gameObject.SendMessage("LockedMovement");
+        gameObject.SendMessage("LockMovement");
         lockedMovement = true;
     }
 
+    private void Land()
+    {
+        gameObject.SendMessage("UnlockMovement");
+        // TODO need to reimplement this so the npc doesn't move in midair
+        lockedMovement = false;
+        flying = false;
+    }
     
 }

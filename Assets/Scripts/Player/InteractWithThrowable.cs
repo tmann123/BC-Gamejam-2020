@@ -37,7 +37,6 @@ public class InteractWithThrowable : MonoBehaviour
             PickupObject();
         }
         if(holdingThrowable){
-            Debug.Log("throwable transform being changed");
             ChangeThrowAngle();
             if (!input.PickUp)
             {
@@ -61,7 +60,6 @@ public class InteractWithThrowable : MonoBehaviour
         //I don't know if tbl.Pickup() is needed either but its there for now
         heldItem.Pickup();
         holdingThrowable = true;
-        Debug.Log("f key pressed");
     }
 
     private void ThrowObject()
@@ -69,7 +67,7 @@ public class InteractWithThrowable : MonoBehaviour
         //I don't know if tbl.Pickup() is needed either but its there for now
         holdingThrowable = false;
         heldItem.Throw(objectHit.transform.forward);
-        connectPoint.transform.rotation = Quaternion.Euler(0,0,0);
+        connectPoint.transform.rotation = gameObject.transform.rotation;
     }
 
     private void ChangeThrowAngle(){
@@ -77,11 +75,10 @@ public class InteractWithThrowable : MonoBehaviour
         heldItem.transform.position = connectPoint.transform.position;
         heldItem.transform.rotation = connectPoint.transform.rotation;
 
-        if(connectPoint.transform.rotation.eulerAngles.x > 290.0f || connectPoint.transform.rotation.eulerAngles.x == 0 ){
-            //Debug.Log(connectPoint.transform.rotation.eulerAngles.x);
+        if(connectPoint.transform.rotation.eulerAngles.x > 290.0f || connectPoint.transform.rotation.eulerAngles.x == 0 )
+        {
             connectPoint.transform.Rotate(new Vector3(-3,0,0) * Time.deltaTime * rotationSpeed);
         } else {
-            Debug.Log("Should not be rotating");
             connectPoint.transform.Rotate(Vector3.zero);
         }
 
