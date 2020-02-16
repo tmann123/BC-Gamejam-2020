@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1711574805347352943}
   - component: {fileID: 3866150651308942784}
   - component: {fileID: 709619987637050483}
+  - component: {fileID: 6501642261406736896}
   m_Layer: 9
   m_Name: Pool
   m_TagString: Pool
@@ -93,3 +94,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6501642261406736896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010220187738508083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a0748ace9527a45bbc13c9ca3cffd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

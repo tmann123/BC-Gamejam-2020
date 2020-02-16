@@ -8,6 +8,8 @@ TagManager:
   - PauseMenu
   - HUD
   - Giant
+  - Pool
+  - NPC
   layers:
   - Default
   - TransparentFX
