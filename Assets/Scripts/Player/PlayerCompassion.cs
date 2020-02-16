@@ -41,7 +41,7 @@ public class PlayerCompassion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TestSliderUpdate();
+        // TestSliderUpdate();
     }
 
     // Tests the slider by incrementing then decrementing

@@ -9,12 +9,16 @@ public class NpcAttributes : MonoBehaviour
     public float initHealth;
     public float damageSpeed;
     public float damagePerCollide;
+    public float intoPoolCompassion = 5f;
+    public float deadCompassion = -5f;
+    public float hurtCompassion = -2f;
 
     // private
     private float health;
     private Throwables thr;
     private bool damageTaken;
     private bool won;
+    private PlayerCompassion playerCompRef;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,7 @@ public class NpcAttributes : MonoBehaviour
         thr = gameObject.GetComponent<Throwables>();
         damageTaken = false;
         won = false;
+        playerCompRef = GameObject.FindGameObjectWithTag("Giant").GetComponent<PlayerCompassion>();
     }
 
     // Update is called once per frame
@@ -40,11 +45,19 @@ public class NpcAttributes : MonoBehaviour
         {
             damageTaken = true;
             health -= damagePerCollide;
+
+            if (health <= 0f) {
+                playerCompRef.ChangeCompassion(deadCompassion);
+            }
+            else {
+                playerCompRef.ChangeCompassion(hurtCompassion);
+            }
         }
         if (collision.collider.tag == "Pool" && thr.Flying && !won)
         {
             // TODO
             won = true;
+            playerCompRef.ChangeCompassion(intoPoolCompassion);
         }
     }
 }
