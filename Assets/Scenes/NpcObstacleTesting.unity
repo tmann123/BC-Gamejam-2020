@@ -585,7 +585,17 @@ PrefabInstance:
     - target: {fileID: 2604213728405927328, guid: aa862f70bb730e74ea61ec2d6fa6f2fe,
         type: 3}
       propertyPath: throwspeed
-      value: 1000
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604213728405927330, guid: aa862f70bb730e74ea61ec2d6fa6f2fe,
+        type: 3}
+      propertyPath: npcRelRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604213728405927330, guid: aa862f70bb730e74ea61ec2d6fa6f2fe,
+        type: 3}
+      propertyPath: npcBorderRadius
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2604213728405927335, guid: aa862f70bb730e74ea61ec2d6fa6f2fe,
         type: 3}
@@ -646,6 +656,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604213728405927339, guid: aa862f70bb730e74ea61ec2d6fa6f2fe,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa862f70bb730e74ea61ec2d6fa6f2fe, type: 3}
