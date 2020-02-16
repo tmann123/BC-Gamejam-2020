@@ -7,6 +7,7 @@ public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] private float scrollTick = 0.1f;
     [SerializeField] private float mouseSensitivity = 10f;
+    [SerializeField] private GameObject pauseMenu;
 
     private Vector2 movement = Vector2.zero;
     private Vector2 mouseDrift = Vector2.zero;
@@ -49,5 +50,11 @@ public class PlayerInputs : MonoBehaviour
     void OnPickUp()
     {
         pickUp = !pickUp;
+    }
+
+    void OnPause() {
+        // Activate menu canvas and call its pause function
+        pauseMenu.SetActive(true);
+        pauseMenu.GetComponent<PauseMenu>().Pause(this.transform.gameObject);
     }
 }

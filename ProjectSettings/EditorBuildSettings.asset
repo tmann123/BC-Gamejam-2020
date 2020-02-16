@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: f972e52c87c53914f9f95f1cc61b2939
+  - enabled: 1
     path: Assets/Scenes/NpcObstacleTesting.unity
     guid: 541ba8994b221f14f961a6d0e0d8ac7b
   m_configObjects: {}
