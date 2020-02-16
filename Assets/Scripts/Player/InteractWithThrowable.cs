@@ -17,7 +17,7 @@ public class InteractWithThrowable : MonoBehaviour
 
     // private
     private RaycastHit objectHit;
-    private bool holdingThrowable;
+    public bool holdingThrowable;
     private Throwables heldItem;
     private PlayerInputs input;
 

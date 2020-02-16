@@ -5,6 +5,11 @@ using UnityEngine;
 public class AllAnimation : MonoBehaviour
 {   
     public Animator anim;
+    private InteractWithThrowable item;
+
+    void Start() {
+        item = GetComponent<InteractWithThrowable>();    
+    }
     
 
     // Update is called once per frame
@@ -16,7 +21,7 @@ public class AllAnimation : MonoBehaviour
             anim.SetBool("isIdle", false);
             anim.Play("MovingForward", -1);
         }
-        if (Input.GetKeyUp("e")){
+        if (Input.GetKeyUp("e") && item.holdingThrowable){
             anim.Play("Throw Object", -1);
         } 
     }
