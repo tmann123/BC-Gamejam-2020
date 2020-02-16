@@ -21,7 +21,7 @@ public class InteractWithThrowable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ray = gameObject;
     }
 
     // Update is called once per frame
