@@ -6,13 +6,16 @@ public class Throwables : MonoBehaviour
 {
     // public
     public float throwspeed;
-    public float speed;
 
     // private
     private Rigidbody rb;
     private bool lockedMovement;
     private bool flying;
+    public float speed;
 
+    // getters
+    public float Speed { get { return speed; } }
+    public bool Flying { get { return flying; } }
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +52,6 @@ public class Throwables : MonoBehaviour
     private void Land()
     {
         gameObject.SendMessage("UnlockMovement");
-        // TODO need to reimplement this so the npc doesn't move in midair
         lockedMovement = false;
         flying = false;
     }
