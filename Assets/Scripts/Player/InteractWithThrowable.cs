@@ -10,12 +10,15 @@ public class InteractWithThrowable : MonoBehaviour
     public GameObject ray;
     // Set in Prefab
     public GameObject connectPoint;
+    
+    public float rotationSpeed;
 
     // private
     private RaycastHit objectHit;
     private bool holdingThrowable;
     private Throwables heldItem;
     private PlayerInputs input;
+    private Vector3 rotatedAmount;
 
  
     // Start is called before the first frame update
@@ -23,6 +26,7 @@ public class InteractWithThrowable : MonoBehaviour
     {
         input = GetComponent<PlayerInputs>();
         holdingThrowable = false;
+        rotatedAmount = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -34,8 +38,7 @@ public class InteractWithThrowable : MonoBehaviour
         }
         if(holdingThrowable){
             Debug.Log("throwable transform being changed");
-            heldItem.transform.position = connectPoint.transform.position;
-            heldItem.transform.rotation = connectPoint.transform.rotation;
+            ChangeThrowAngle();
             if (!input.PickUp)
             {
                 ThrowObject();
@@ -66,5 +69,22 @@ public class InteractWithThrowable : MonoBehaviour
         //I don't know if tbl.Pickup() is needed either but its there for now
         holdingThrowable = false;
         heldItem.Throw(objectHit.transform.forward);
+        connectPoint.transform.rotation = Quaternion.Euler(0,0,0);
+    }
+
+    private void ChangeThrowAngle(){
+        //rotatedAmount += new Vector3(-3,0,0)*Time.deltaTime*rotationSpeed;
+        heldItem.transform.position = connectPoint.transform.position;
+        heldItem.transform.rotation = connectPoint.transform.rotation;
+
+        if(connectPoint.transform.rotation.eulerAngles.x > 290.0f || connectPoint.transform.rotation.eulerAngles.x == 0 ){
+            //Debug.Log(connectPoint.transform.rotation.eulerAngles.x);
+            connectPoint.transform.Rotate(new Vector3(-3,0,0)*Time.deltaTime*rotationSpeed);
+        } else {
+            Debug.Log("Should not be rotating");
+            connectPoint.transform.Rotate(Vector3.zero);
+        }
+
+         
     }
 }

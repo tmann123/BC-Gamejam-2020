@@ -6,10 +6,12 @@ public class Throwables : MonoBehaviour
 {
     // public
     public float throwspeed;
+    public float speed;
 
     // private
     private Rigidbody rb;
     private bool lockedMovement;
+
 
 
     // Start is called before the first frame update
@@ -21,11 +23,13 @@ public class Throwables : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        speed = rb.velocity.magnitude;
+        Debug.Log(speed);
         if(lockedMovement)
         {
             Debug.Log("Gravity turned off");
             rb.useGravity = false;
-            //The giant will need change the transform of the Throwable
+            
         }
     }
 
