@@ -70,6 +70,7 @@ public class InteractWithThrowable : MonoBehaviour
     private void PickupObject(){
         //The throwable object
         heldItem = objectHit.transform.GetComponent<Throwables>();
+        heldItem.GetComponent<Collider>().enabled = false;
         
         //I don't know if tbl.Pickup() is needed either but its there for now
         heldItem.Pickup();
@@ -83,6 +84,7 @@ public class InteractWithThrowable : MonoBehaviour
         heldItem.Throw(objectHit.transform.forward);
         connectPoint.transform.rotation = gameObject.transform.rotation;
         anim.Play("Throw Object", -1);
+        heldItem.GetComponent<Collider>().enabled = true;
     }
 
     private void ChangeThrowAngle(){
