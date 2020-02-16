@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Throwables : MonoBehaviour
 {
-    private Rigidbody rb;
+    // public
     public float throwspeed;
 
-    private bool isPickedUp;
+    // private
+    private Rigidbody rb;
+    private bool lockedMovement;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        lockedMovement = false;
     }
 
     // Update is called once per frame
     void Update() {
-
-        if(isPickedUp){
+        if(lockedMovement)
+        {
             Debug.Log("Gravity turned off");
             rb.useGravity = false;
             //The giant will need change the transform of the Throwable
@@ -27,16 +30,16 @@ public class Throwables : MonoBehaviour
     }
 
     public void Throw(Vector3 direction) {
-        
         rb.AddForce(direction.normalized * throwspeed);
-
         rb.useGravity = true;
-        isPickedUp = false;
+        // TODO need to reimplement this so the npc doesn't move in midair
+        lockedMovement = false;
     }
 
     public void Pickup(){
         Debug.Log("Picked up");
-        isPickedUp = true;
+        gameObject.SendMessage("LockedMovement");
+        lockedMovement = true;
     }
 
     

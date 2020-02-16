@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d16afd737ae48149a14bdd60c03af47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwspeed: 2.29
+  throwspeed: 10000
 --- !u!1 &253438934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3625561610959120499, guid: f86856ba7c7e0974783d0cd0d3e06680,
@@ -293,6 +293,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3625561609372145002, guid: f86856ba7c7e0974783d0cd0d3e06680,
+        type: 3}
+      propertyPath: mouseXInputName
+      value: Mouse X
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625561609372145002, guid: f86856ba7c7e0974783d0cd0d3e06680,
+        type: 3}
+      propertyPath: mouseYInputName
+      value: Mouse Y
+      objectReference: {fileID: 0}
     - target: {fileID: 3625561609835314511, guid: f86856ba7c7e0974783d0cd0d3e06680,
         type: 3}
       propertyPath: m_LocalPosition.y
