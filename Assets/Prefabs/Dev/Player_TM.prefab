@@ -71,7 +71,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6191209357875327187}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.90999985, z: -4.04}
+  m_LocalPosition: {x: 0, y: 0.90999985, z: 1.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8889325725858239096}
@@ -101,7 +101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7374322463266024728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 1.3699999, z: -4.42}
+  m_LocalPosition: {x: 0.03, y: 1.3699999, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8889325725858239096}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 8889325725858239099}
   - component: {fileID: 8533704671144788403}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_TM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollTick: 0.5
   mouseSensitivity: 20
+  pauseMenu: {fileID: 0}
 --- !u!114 &8889325725858239097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,11 +398,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd34caeb218d3245bd730db5d775589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -9.81
+  gravity: -19.62
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 512
+  jumpHeight: 3
 --- !u!114 &8889325725858239099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,3 +450,4 @@ MonoBehaviour:
   interactDistance: 86
   ray: {fileID: 7374322463266024728}
   connectPoint: {fileID: 6191209357875327187}
+  rotationSpeed: 10

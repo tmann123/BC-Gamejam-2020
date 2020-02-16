@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
@@ -35,6 +33,7 @@ public class PlayerLook : MonoBehaviour
 
     private void LockCursor() {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Rotate camera based on mouse delta since last frame
