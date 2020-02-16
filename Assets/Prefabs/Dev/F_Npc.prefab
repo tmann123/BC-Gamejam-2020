@@ -2583,7 +2583,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 9c98626bb605f054186f0b931f8f4cea, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2678,7 +2678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d16afd737ae48149a14bdd60c03af47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwspeed: 200
+  throwspeed: 500
   speed: 0
 --- !u!195 &108070244101239595
 NavMeshAgent:
