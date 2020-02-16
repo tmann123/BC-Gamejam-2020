@@ -20,6 +20,7 @@ public class InteractWithThrowable : MonoBehaviour
     public bool holdingThrowable;
     private Throwables heldItem;
     private PlayerInputs input;
+    private Animator anim;
 
 
  
@@ -28,6 +29,7 @@ public class InteractWithThrowable : MonoBehaviour
     {
         input = GetComponent<PlayerInputs>();
         holdingThrowable = false;
+        anim = GetComponentInChildren<Animator>();
 
     }
 
@@ -80,7 +82,7 @@ public class InteractWithThrowable : MonoBehaviour
         holdingThrowable = false;
         heldItem.Throw(objectHit.transform.forward);
         connectPoint.transform.rotation = gameObject.transform.rotation;
-        
+        anim.Play("Throw Object", -1);
     }
 
     private void ChangeThrowAngle(){
