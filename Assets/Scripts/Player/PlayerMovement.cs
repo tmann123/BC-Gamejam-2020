@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        ProcessHorizontal();
+    }
+
+    private void ProcessHorizontal() {
         float x = input.Movement.x;
         float z = input.Movement.y;
 
