@@ -15,6 +15,7 @@ public class NpcMovement : MonoBehaviour
     private float timer;
     private Vector3 startPos;
     private bool lockedMovement;
+    private bool won;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +24,16 @@ public class NpcMovement : MonoBehaviour
         timer = npcTimer;
         // TODO we need to change startpos when the npc gets yeet'ed to the landing spot
         startPos = transform.position;
+        won = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (won)
+        {
+            return;
+        }
         // Check if NPC is free to move
         if (lockedMovement)
         {
@@ -102,5 +108,12 @@ public class NpcMovement : MonoBehaviour
     private bool PositionInsideRadius(Vector3 currPos, Vector3 origin)
     {
         return (npcBorderRadius > Mathf.Sqrt(Mathf.Pow((currPos.x - origin.x), 2) + Mathf.Pow((currPos.y - origin.y), 2)));
+    }
+
+    public void OnWon()
+    {
+        won = true;
+        agent.enabled = false;
+        lockedMovement = true;
     }
 }
