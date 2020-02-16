@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1060837182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1060837183}
+  m_Layer: 0
+  m_Name: DickToAssPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1060837183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060837182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.91, z: 0.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3625561610959120509}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2950938641482014965
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,10 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a7279521f8fd949936143c39d5928b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseXInputName: Mouse X
-  mouseYInputName: Mouse Y
-  mouseSensitivity: 200
   playerBody: {fileID: 0}
+  maxCamClamp: 10
+  minCamClamp: 2
 --- !u!1 &3625561609835314508
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3625561609835314508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.8, z: 0}
+  m_LocalPosition: {x: 0, y: 1.61, z: 0.852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3625561610959120509}
@@ -253,6 +282,7 @@ GameObject:
   - component: {fileID: 3625561610959120508}
   - component: {fileID: 3625561610959120505}
   - component: {fileID: 3625561610959120510}
+  - component: {fileID: 253438935}
   m_Layer: 0
   m_Name: PlayerFZ
   m_TagString: Untagged
@@ -275,6 +305,7 @@ Transform:
   - {fileID: 3625561609372145003}
   - {fileID: 3625561609835314511}
   - {fileID: 5775111038767735268}
+  - {fileID: 1060837183}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308,6 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d7ce21f3d7d4b49b4c92b2652698b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollTick: 0.1
+  mouseSensitivity: 10
 --- !u!114 &3625561610959120508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd18c784a337a64090e201138a8ee72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 12
 --- !u!114 &3625561610959120505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,3 +402,18 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &253438935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625561610959120499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357f9d1bef04f524c8d86720305103cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 86.02
+  ray: {fileID: 2950938641482014965}
+  connectPoint: {fileID: 1060837182}

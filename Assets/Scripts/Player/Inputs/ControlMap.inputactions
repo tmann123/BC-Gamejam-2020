@@ -22,14 +22,14 @@
                     "interactions": ""
                 },
                 {
-<<<<<<< HEAD
                     "name": "PickUp",
                     "type": "Button",
                     "id": "7e82ca46-ca69-4422-8638-ecaea5c66de1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
-=======
+                },
+                {
                     "name": "Zoom",
                     "type": "Value",
                     "id": "bdd3ed11-29ab-401b-bd04-b5c2772ee82e",
@@ -44,7 +44,6 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Press"
->>>>>>> Tyler
                 }
             ],
             "bindings": [
@@ -134,8 +133,7 @@
                     "groups": "Keyboard",
                     "action": "Jump",
                     "isComposite": false,
-<<<<<<< HEAD
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
@@ -146,8 +144,6 @@
                     "groups": "",
                     "action": "PickUp",
                     "isComposite": false,
-=======
->>>>>>> Tyler
                     "isPartOfComposite": false
                 }
             ]

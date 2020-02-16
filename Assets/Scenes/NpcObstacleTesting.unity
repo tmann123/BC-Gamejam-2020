@@ -535,16 +535,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2166086401705587842, guid: 11269c39b1200dc49b4b60873b566c30,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2166086403327150480, guid: 11269c39b1200dc49b4b60873b566c30,
-        type: 3}
-      propertyPath: groundMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 2166086403327150484, guid: 11269c39b1200dc49b4b60873b566c30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -600,35 +590,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2166086403327150486, guid: 11269c39b1200dc49b4b60873b566c30,
-        type: 3}
-      propertyPath: scrollTick
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2166086403327150486, guid: 11269c39b1200dc49b4b60873b566c30,
-        type: 3}
-      propertyPath: mouseSensitivity
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2166086403327150490, guid: 11269c39b1200dc49b4b60873b566c30,
         type: 3}
       propertyPath: m_Name
       value: Player_TM
-      objectReference: {fileID: 0}
-    - target: {fileID: 9217437934765113371, guid: 11269c39b1200dc49b4b60873b566c30,
-        type: 3}
-      propertyPath: mouseSensitivity
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9217437934765113371, guid: 11269c39b1200dc49b4b60873b566c30,
-        type: 3}
-      propertyPath: maxCamClamp
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9217437934765113371, guid: 11269c39b1200dc49b4b60873b566c30,
-        type: 3}
-      propertyPath: minCamClamp
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11269c39b1200dc49b4b60873b566c30, type: 3}
