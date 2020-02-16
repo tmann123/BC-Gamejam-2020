@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllAnimation : MonoBehaviour
+public class GiantAnimation : MonoBehaviour
 {   
     public Animator anim;
     private InteractWithThrowable item;
