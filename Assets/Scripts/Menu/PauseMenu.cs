@@ -5,6 +5,11 @@ public class PauseMenu : MonoBehaviour
 {
     private bool gameIsPaused = false;
     private GameObject playerRef;
+    private GameObject hud;
+
+    private void Awake() {
+        hud = GameObject.FindGameObjectWithTag("HUD");
+    }
 
     // Resume game
     public void Resume() {
@@ -16,6 +21,7 @@ public class PauseMenu : MonoBehaviour
 
         // Disable the pause menu while game is running
         transform.gameObject.SetActive(false);
+        hud.SetActive(true);
 
         // Lock cursor so player can use it to move camera
         Cursor.lockState = CursorLockMode.Locked;
@@ -30,6 +36,7 @@ public class PauseMenu : MonoBehaviour
 
         // Disable player inputs while game is paused
         playerRef.GetComponent<PlayerInputs>().enabled = false;
+        hud.SetActive(false);
 
         // Unlock cursor so player can select buttons
         Cursor.lockState = CursorLockMode.Confined;
