@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f972e52c87c53914f9f95f1cc61b2939
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NpcObstacleTesting.unity
     guid: 541ba8994b221f14f961a6d0e0d8ac7b
+  - enabled: 1
+    path: Assets/Scenes/TerrrainMaking OwO.unity
+    guid: c8945cc1adb909847afb9c707d91c2be
   m_configObjects: {}
