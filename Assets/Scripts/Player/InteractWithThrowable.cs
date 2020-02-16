@@ -18,7 +18,7 @@ public class InteractWithThrowable : MonoBehaviour
     private bool holdingThrowable;
     private Throwables heldItem;
     private PlayerInputs input;
-    private Vector3 rotatedAmount;
+
 
  
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class InteractWithThrowable : MonoBehaviour
     {
         input = GetComponent<PlayerInputs>();
         holdingThrowable = false;
-        rotatedAmount = Vector3.zero;
+
     }
 
     // Update is called once per frame
@@ -79,7 +79,7 @@ public class InteractWithThrowable : MonoBehaviour
 
         if(connectPoint.transform.rotation.eulerAngles.x > 290.0f || connectPoint.transform.rotation.eulerAngles.x == 0 ){
             //Debug.Log(connectPoint.transform.rotation.eulerAngles.x);
-            connectPoint.transform.Rotate(new Vector3(-3,0,0)*Time.deltaTime*rotationSpeed);
+            connectPoint.transform.Rotate(new Vector3(-3,0,0) * Time.deltaTime * rotationSpeed);
         } else {
             Debug.Log("Should not be rotating");
             connectPoint.transform.Rotate(Vector3.zero);
