@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pool : MonoBehaviour
 {
@@ -17,7 +18,11 @@ public class Pool : MonoBehaviour
     {
         if (currNpc == totalNpc)
         {
-            // TODO
+            // Unlock cursor so player can select buttons
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+
+            SceneManager.LoadSceneAsync("EndGame");
         }
     }
 

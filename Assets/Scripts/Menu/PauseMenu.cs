@@ -47,6 +47,7 @@ public class PauseMenu : MonoBehaviour
     public void Quit() {
         // TimeScale propegates through load so it needs to be set to 1
         Time.timeScale = 1f;
+
         SceneManager.LoadSceneAsync("MainMenu");
     }
 }

@@ -19,6 +19,7 @@ public class NpcAttributes : MonoBehaviour
     private bool damageTaken;
     private bool won;
     private PlayerCompassion playerCompRef;
+    private bool dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +47,9 @@ public class NpcAttributes : MonoBehaviour
             damageTaken = true;
             health -= damagePerCollide;
 
-            if (health <= 0f) {
+            if (health <= 0f && !dead) {
                 playerCompRef.ChangeCompassion(deadCompassion);
+                dead = true;
             }
             else {
                 playerCompRef.ChangeCompassion(hurtCompassion);

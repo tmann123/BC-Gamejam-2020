@@ -169,6 +169,17 @@ public class @ControlMap : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""102206e4-042d-4d7c-9e29-f192d1b0089d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""8d8426ec-610a-4a71-b664-c9802a3044fa"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": ""Press"",

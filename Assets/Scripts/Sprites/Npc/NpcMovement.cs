@@ -16,6 +16,8 @@ public class NpcMovement : MonoBehaviour
     private Vector3 startPos;
     private bool lockedMovement;
     private bool won;
+    private Vector3 endPosition;
+    private Quaternion endRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,8 @@ public class NpcMovement : MonoBehaviour
     {
         if (won)
         {
+            gameObject.transform.position = endPosition;
+            gameObject.transform.rotation = endRotation;
             return;
         }
         // Check if NPC is free to move
@@ -113,6 +117,8 @@ public class NpcMovement : MonoBehaviour
     public void OnWon()
     {
         won = true;
+        endPosition = gameObject.transform.position;
+        endRotation = gameObject.transform.rotation;
         agent.enabled = false;
         lockedMovement = true;
     }
